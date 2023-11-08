@@ -4,7 +4,17 @@ import './ImageGalleryItem.css';
 
 export default class ImageGalleryItem extends Component {
   render() {
-    return <div></div>;
+    return (
+      <li key={this.props.id.toString()} className="gallery-item">
+        <img
+          className="img"
+          width="400px"
+          height="250px"
+          src={this.props.webformatURL}
+          alt={this.props.alt}
+        />
+      </li>
+    );
   }
 }
 
