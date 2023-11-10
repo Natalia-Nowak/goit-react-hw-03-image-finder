@@ -4,13 +4,21 @@ import './Modal.css';
 
 export default class Modal extends Component {
   render() {
-    return (
-      <div class="overlay">
-        <div class="modal">
-          <img src="" alt="" />
+    if (this.props.showModal === true) {
+      return (
+        <div onClick={this.props.handleModalClose} className="overlay">
+          <div className="modal">
+            <img
+              onKeyDown={this.props.onKeyPressed}
+              src={this.props.urlModal}
+              alt=""
+            />
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return <></>;
+    }
   }
 }
 

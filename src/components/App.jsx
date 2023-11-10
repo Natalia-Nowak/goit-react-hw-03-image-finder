@@ -5,6 +5,7 @@ import Loader from './Loader/Loader';
 import Modal from './Modal/Modal';
 import Searchbar from './Searchbar/Searchbar';
 import axios from 'axios';
+
 // import { searchPics } from './api-pixabay.js';
 
 export class App extends Component {
@@ -18,6 +19,8 @@ export class App extends Component {
       currentPage: 1,
       perPage: 12,
       loading: false,
+      showModal: false,
+      urlModal: '',
     };
   }
   handleSubmit = async event => {
@@ -69,6 +72,23 @@ export class App extends Component {
     console.log(incrementPage);
   };
 
+  handleClick = url => {
+    this.setState({
+      showModal: true,
+      urlModal: url,
+    });
+  };
+
+  handleModalClose = event => {
+    this.setState({
+      showModal: false,
+    });
+  };
+
+  onKeyPressed = event => {
+    console.log(event);
+  };
+
   render() {
     const { hits } = this.state;
     const { searchQuery } = this.state;
@@ -76,6 +96,8 @@ export class App extends Component {
     const { currentPage } = this.state;
     const { totalHits } = this.state;
     const { loading } = this.state;
+    const { showModal } = this.state;
+    const { urlModal } = this.state;
     return (
       <div>
         <Searchbar
@@ -83,7 +105,7 @@ export class App extends Component {
           handleSubmit={this.handleSubmit}
           changeQuery={this.changeQuery}
         />
-        <ImageGallery hits={hits} />
+        <ImageGallery hits={hits} handleClick={this.handleClick} />
         <Button
           totalHits={totalHits}
           currentPage={currentPage}
@@ -92,7 +114,12 @@ export class App extends Component {
           handleLoadMore={this.handleLoadMore}
         />
         <Loader loading={loading} />
-        <Modal />
+        <Modal
+          showModal={showModal}
+          urlModal={urlModal}
+          handleModalClose={this.handleModalClose}
+          onKeyPressed={this.onKeyPressed}
+        />
       </div>
     );
   }

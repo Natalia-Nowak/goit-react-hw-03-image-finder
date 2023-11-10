@@ -13,6 +13,7 @@ export default class ImageGallery extends Component {
             webformatURL={hit.webformatURL}
             largeImageURL={hit.largeImageURL}
             alt={hit.tags}
+            handleClick={this.props.handleClick}
           />
         ))}
       </ul>
