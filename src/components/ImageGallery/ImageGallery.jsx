@@ -21,4 +21,6 @@ export default class ImageGallery extends Component {
   }
 }
 
-ImageGallery.propTypes = {};
+ImageGallery.propTypes = {
+  hits: PropTypes.number,
+};

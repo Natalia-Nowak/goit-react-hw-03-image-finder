@@ -27,5 +27,7 @@ export default class Searchbar extends Component {
 }
 
 Searchbar.propTypes = {
-  onSubmit: PropTypes.string,
+  handleSubmit: PropTypes.string,
+  searchQuery: PropTypes.string,
+  changeQuery: PropTypes.string,
 };

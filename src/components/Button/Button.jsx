@@ -25,4 +25,10 @@ export default class Button extends Component {
   }
 }
 
-Button.propTypes = {};
+Button.propTypes = {
+  currentPage: PropTypes.number,
+  perPage: PropTypes.number,
+  totalHits: PropTypes.number,
+  loading: PropTypes.bool,
+  handleLoadMore: PropTypes.string,
+};

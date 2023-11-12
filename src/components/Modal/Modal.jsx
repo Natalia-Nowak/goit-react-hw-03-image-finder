@@ -22,4 +22,9 @@ export default class Modal extends Component {
   }
 }
 
-Modal.propTypes = {};
+Modal.propTypes = {
+  showModal: PropTypes.bool,
+  handleModalClose: PropTypes.string,
+  urlModal: PropTypes.string,
+  onKeyPressed: PropTypes.string,
+};

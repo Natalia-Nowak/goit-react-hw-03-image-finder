@@ -7,7 +7,6 @@ export default class ImageGalleryItem extends Component {
     return (
       <li key={this.props.id.toString()} className="gallery-item">
         <img
-          onKeyDown={this.props.onKeyPressed}
           onClick={() => this.props.handleClick(this.props.largeImageURL)}
           className="img"
           width="400px"
@@ -20,4 +19,10 @@ export default class ImageGalleryItem extends Component {
   }
 }
 
-ImageGalleryItem.propTypes = {};
+ImageGalleryItem.propTypes = {
+  id: PropTypes.number,
+  handleClick: PropTypes.string,
+  largeImageURL: PropTypes.string,
+  webformatURL: PropTypes.string,
+  alt: PropTypes.string,
+};
